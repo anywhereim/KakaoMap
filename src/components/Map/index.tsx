@@ -20,11 +20,11 @@ export default function Map() {
         //지도의 중심좌표.
         center: new window.kakao.maps.LatLng(33.450701, 126.570667),
         //지도의 레벨(확대, 축소 정도)
-        level: 7,
+        level: 12,
         // 지도의 최소 레벨 (옵션)
         minLevel: 7,
         // 지도의 최대 레벨 (옵션)
-        maxLevel: 1,
+        maxLevel: 13,
       };
       const map = new window.kakao.maps.Map(mapContainer, mapOption);
       const polygonPath = [];

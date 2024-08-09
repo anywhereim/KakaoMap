@@ -1,6 +1,8 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import Script from "next/script";
+import { BsArrowsAngleExpand } from "react-icons/bs";
 
 /* global kakao */
 
@@ -11,6 +13,8 @@ declare global {
 }
 
 export default function MiniMap() {
+  const router = useRouter();
+
   // @see - https://apis.map.kakao.com/web/documentation/#load
   const loadKakaoMap = () => {
     window.kakao.maps.load(() => {
@@ -38,8 +42,17 @@ export default function MiniMap() {
         src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_CLIENT}&autoload=false`}
         onReady={loadKakaoMap}
       />
-      <div className="w-96 h-96 whitespace-nowrap">
-        <div id="minimap" className="w-full h-full" />
+      <div className="w-96 h-96 relative">
+        <div className="w-96 h-96 z-20">
+          <div id="minimap" className="w-full h-full" />
+        </div>
+        <button
+          onClick={() => router.push("/map")}
+          className="z-50 gap-1 bg-white flex flex-row border border-black rounded-sm p-1 items-center justify-center absolute bottom-2 right-2"
+        >
+          <BsArrowsAngleExpand />
+          지도보기
+        </button>
       </div>
     </>
   );
