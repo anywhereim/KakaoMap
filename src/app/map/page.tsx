@@ -1,6 +1,7 @@
 "use client";
 
 import Map from "@/components/Map";
+import TestMap from "@/components/Map/TestMap";
 import Script from "next/script";
 
 /* global kakao */
@@ -12,5 +13,5 @@ declare global {
 }
 
 export default function MapPage() {
-  return <Map />;
+  return <TestMap />;
 }
